@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7js323r25he0"]
+
+[ext_resource type="Script" path="res://Script/PlayerCharacter.gd" id="1_csbcf"]
+[ext_resource type="Texture2D" uid="uid://crt1l3tvho2t3" path="res://Asset/player.png" id="1_hh8uk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0653"]
+size = Vector2(94, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqpgu"]
+size = Vector2(98, 96)
+
+[node name="PlayerBody" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_csbcf")
+metadata/_edit_horizontal_guides_ = [650.0]
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_hh8uk")
+
+[node name="ColShape2D_Physics" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g0653")
+
+[node name="Area2D_Detect" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="ColShape2D_Detect" type="CollisionShape2D" parent="Area2D_Detect"]
+visible = false
+shape = SubResource("RectangleShape2D_fqpgu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_right = 2220
+limit_bottom = 651
+limit_smoothed = true
+position_smoothing_speed = 10.0
+editor_draw_limits = true
+
+[connection signal="body_entered" from="Area2D_Detect" to="." method="OnBodyEnterBody"]
