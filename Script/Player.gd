@@ -1,7 +1,10 @@
-extends Character
 class_name Player
+extends Character
 
 @export var jumpForce: float = 300
+@export var stompImpulse: float = 200
+@export var cancelJumpFraction: float = 0.3
+
 
 func _physics_process(delta):
 	SetVelocityByInput()
@@ -14,7 +17,7 @@ func SetVelocityByInput():
 
 	var speedX = inputDirection.x * moveSpeed
 	SetVelocityX(speedX)
-		
+
 	if inputDirection.y != 0:
 		AddModifyVeloctityY(inputDirection.y * jumpForce)
 
@@ -33,7 +36,7 @@ func GetInputDirection() -> Vector2:
 			Input.is_action_just_released(Constant.UserInputAction.JUMP) && velocity.y < 0
 		)
 		if cancelJumpMidAir:
-			directionY = 0.3
+			directionY = cancelJumpFraction
 
 	return Vector2(directionX, directionY)
 
@@ -46,6 +49,20 @@ func AddModifyVeloctityY(value: float):
 	velocity.y += value
 
 
-func OnBodyEnterBody(body):
-	queue_free()
+func OnEnterEnemyBody(body: Node2D):
+	RestartGame()
+
+
+func OnEnterArea(area: Area2D):
+	var enemyHead = area as EnemyHead
+	if enemyHead != null:
+		StompEnemyHead(enemyHead)
+
+
+func StompEnemyHead(enemyHead: EnemyHead):
+	enemyHead.KillEnemy()
+	AddModifyVeloctityY(-stompImpulse)
+
+
+func RestartGame():
 	get_tree().reload_current_scene()
