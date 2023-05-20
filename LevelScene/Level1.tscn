@@ -51,7 +51,6 @@ layer_0/tile_data = PackedInt32Array(131100, 1, 0, 196636, 1, 0, 262172, 1, 0, 3
 
 [node name="PlayerBody" parent="." instance=ExtResource("2_auv4o")]
 position = Vector2(149, 221)
-jumpForce = 450.0
 gravity = 600
 
 [node name="Enemy1" parent="." instance=ExtResource("3_kffn5")]
