@@ -1,6 +1,6 @@
 # Readme
 
-# Simple Platform Game With Godot
+# My first Godot Game (Credit to GDQuest)
 
 ### Credit
 
