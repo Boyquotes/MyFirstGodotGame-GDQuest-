@@ -8,4 +8,4 @@
 
 Note
 
-- The implementation is pretty much the same but I did refractor some logic though.
+- The implementation is pretty much the same but I refractored the logic and scenes to fix some buges.
