@@ -31,11 +31,12 @@ shape = SubResource("RectangleShape2D_fqpgu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
-limit_right = 2220
+limit_top = 0
+limit_right = 2350
 limit_bottom = 651
 limit_smoothed = true
 position_smoothing_speed = 10.0
 editor_draw_limits = true
 
 [connection signal="area_entered" from="Area2D_Detect" to="." method="OnEnterArea"]
-[connection signal="body_entered" from="Area2D_Detect" to="." method="OnEnterEnemyBody"]
+[connection signal="body_entered" from="Area2D_Detect" to="." method="OnEnterBody"]

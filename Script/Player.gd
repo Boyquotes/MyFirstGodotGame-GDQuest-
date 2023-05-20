@@ -49,8 +49,10 @@ func AddModifyVeloctityY(value: float):
 	velocity.y += value
 
 
-func OnEnterEnemyBody(body: Node2D):
-	RestartGame()
+func OnEnterBody(body: Node2D):
+	var enemy = body as Enemy
+	if enemy != null:
+		RestartGame()
 
 
 func OnEnterArea(area: Area2D):
