@@ -1,3 +1,4 @@
+class_name Enemy
 extends Character
 
 var currentDirection: int = -1
@@ -31,6 +32,5 @@ func SetVelocityXByDirection() -> void:
 func SetVelocityXOnStop() -> void:
 	velocity.x = 0
 
-
-func OnBodyEnterHead(body: Node2D) -> void:
+func Kill() -> void:
 	queue_free()

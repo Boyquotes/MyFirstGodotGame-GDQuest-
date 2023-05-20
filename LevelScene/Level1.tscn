@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://ccccmp6ao7q5f" path="res://Asset/tileset.png" id="1_1r7jc"]
 [ext_resource type="Texture2D" uid="uid://dgp7vdp641f4a" path="res://Asset/background.png" id="1_sm0iv"]
-[ext_resource type="PackedScene" uid="uid://b7js323r25he0" path="res://CharacterScene/Player.tscn" id="2_auv4o"]
-[ext_resource type="PackedScene" uid="uid://csc5qrtmu2kc8" path="res://CharacterScene/Enemy.tscn" id="3_kffn5"]
+[ext_resource type="PackedScene" uid="uid://1ghgt6habw1" path="res://CharacterScene/Player.tscn" id="2_auv4o"]
+[ext_resource type="PackedScene" uid="uid://b1nenfngpq4wk" path="res://CharacterScene/Enemy.tscn" id="3_kffn5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_83t2g"]
 texture = ExtResource("1_1r7jc")
@@ -38,7 +38,6 @@ metadata/_edit_vertical_guides_ = [2220.0]
 layer = -1
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_sm0iv")
